@@ -14,12 +14,16 @@ class UserRepository implements UserInterface
       return User::where('email', $email)->first();
     }
 
-    public function createUser(UserDto $user)
+    public function createUser(UserDto $user):void
     {
-        return User::create([
+         User::create([
             'name' => $user->name,
             'email' => $user->email,
             'password'=>$user->password
         ]);
+    }
+
+    public function getAll(){
+        return User::all();
     }
 }

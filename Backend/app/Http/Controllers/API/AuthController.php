@@ -7,8 +7,9 @@ use App\Exceptions\UnableToCreateException;
 use App\Exceptions\UserNotFoundException;
 use App\Http\Controllers\Controller;
 use App\service\AuthService;
-use GuzzleHttp\Psr7\Request;
+
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -59,6 +60,14 @@ class AuthController extends Controller
         }
         public function me():JsonResponse{
         return response()->json(auth()->user());
+        }
+
+        public function getAllUsers():JsonResponse{
+        try {
+            return response()->json($this->authService->getUsers());
+        }catch (UserNotFoundException $e){
+            return response()->json(['message'=>$e->getMessage()],401);
+        }
         }
 
 
