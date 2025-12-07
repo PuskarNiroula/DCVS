@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import '../Register/RegisterForm.css';
-import {loginUser, setToken} from "../../api/auth";
+import {loginUser, setToken} from "../../api/auth.js";
 const LoginFrom=()=>{
     const [formData,setFormData]=useState({
         email:'',
