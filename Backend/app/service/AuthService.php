@@ -48,4 +48,12 @@ class AuthService
         }
 
     }
+
+    public function getUsers(){
+        try{
+            return $this->user->getAll();
+        }catch (Exception $e){
+            throw new UserNotFoundException($e->getMessage());
+        }
+    }
 }

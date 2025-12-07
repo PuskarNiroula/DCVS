@@ -12,10 +12,11 @@ Route::get('/user', function (Request $request) {
 Route::controller(AUthController::class)->group(function () {
     Route::post('/login', 'login');
     Route::post('/register', 'register');
+    Route::get('/all','getAllUsers');
 
 
 });
 
 Route::middleware('jwt.auth')->group(function () {
-    Route::get('/me','me');
+    Route::get('/me',[AuthController::class,'me']);
 });

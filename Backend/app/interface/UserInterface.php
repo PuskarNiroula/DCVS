@@ -7,4 +7,6 @@ interface UserInterface
     public function getUserByEmail(string $email);
     public function createUser(UserDto $user);
 
+    public function getAll();
+
 }
