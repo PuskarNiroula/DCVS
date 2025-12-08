@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://192.168.18.6:8000/api';
+import {API_URL} from './api.js';
 
 //registering form
 export const registerUser=async (userData)=>{
