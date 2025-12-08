@@ -22,7 +22,7 @@ const LoginFrom=()=>{
         }
         const response=await loginUser(formData);
         const data =JSON.stringify(response.data);
-        setToken(data.token);
+        setToken(response.data.token);
         setMessage(data.message||"Login successful");
     }
     return(

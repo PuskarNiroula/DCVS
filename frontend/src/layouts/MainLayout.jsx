@@ -4,14 +4,20 @@ import {Outlet} from 'react-router-dom';
 
 const MainLayout = () => {
     return (
-        <div style={{display: "flex"}}>
+        <div style={{ display: "flex", height: "100vh" }}>
             <Sidebar />
-                <div style={{marginLeft: "250px",padding: "20px", flex: 1}}>
-                    <Outlet />
-                </div>
+
+            <div style={{
+                flex: 1,
+                padding: "20px",
+                overflowY: "auto"
+            }}>
+                <Outlet />
+            </div>
         </div>
     );
-
 };
+
 export default MainLayout;
+
 
